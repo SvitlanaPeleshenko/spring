@@ -15,6 +15,19 @@ public class User extends DomainObject {
 
     private String email;
 
+    private Long id;
+
+    @Override
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    @Override
+    public Long getId() {
+
+        return id;
+    }
+
     private NavigableSet<Ticket> tickets = new TreeSet<>();
 
     public String getFirstName() {
