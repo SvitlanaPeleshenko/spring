@@ -28,4 +28,6 @@ public interface AuditoriumService {
      */
     public @Nullable Auditorium getByName(@Nonnull String name);
 
+    Auditorium getByCode(String code);
+
 }

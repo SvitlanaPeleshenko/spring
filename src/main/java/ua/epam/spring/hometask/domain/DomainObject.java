@@ -3,7 +3,7 @@ package ua.epam.spring.hometask.domain;
 /**
  * @author Yuriy_Tkach
  */
-public class DomainObject {
+public class DomainObject extends AbstractDomainObject {
 
     private Long id;
 
@@ -13,6 +13,13 @@ public class DomainObject {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public DomainObject() {
+    }
+
+    public DomainObject(DomainObject domainObject) {
+        this.id = domainObject.id;
     }
 
 }

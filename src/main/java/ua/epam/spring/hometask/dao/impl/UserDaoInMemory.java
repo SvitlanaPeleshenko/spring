@@ -10,7 +10,6 @@ import java.util.Map;
 public class UserDaoInMemory implements UserDao {
 
     private Map<Long, User> usersById = new HashMap<>();
-   // private Map<String, User> usersByEmail = new HashMap<>();
     private long userId = 0;
 
     @Override

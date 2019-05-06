@@ -2,6 +2,7 @@ package ua.epam.spring.hometask.domain;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -14,11 +15,36 @@ public class Auditorium {
 
     private String name;
 
+    private String code;
+
     private long numberOfSeats;
 
     private Set<Long> vipSeats = Collections.emptySet();
 
     public Auditorium() {
+    }
+
+    public Auditorium(String name, String code, long numberOfSeats,
+                      Set<Long> vipSeats) {
+        this.name = name;
+        this.code = code;
+        this.numberOfSeats = numberOfSeats;
+        this.vipSeats = vipSeats;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public Auditorium(Auditorium auditorium) {
+        this.name = auditorium.name;
+        this.vipSeats = new HashSet<>(auditorium.vipSeats);
+        this.numberOfSeats = auditorium.numberOfSeats;
+        this.code = auditorium.code;
     }
 
     /**

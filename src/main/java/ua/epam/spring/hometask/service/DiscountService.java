@@ -6,6 +6,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import ua.epam.spring.hometask.domain.Event;
+import ua.epam.spring.hometask.domain.OrderEntry;
 import ua.epam.spring.hometask.domain.User;
 
 /**
@@ -27,6 +28,13 @@ public interface DiscountService {
      *            Number of tickets that user buys
      * @return discount value from 0 to 100
      */
-    byte getDiscount(@Nullable User user, @Nonnull Event event, @Nonnull LocalDateTime airDateTime, long numberOfTickets);
+    double getDiscount(@Nullable User user, @Nonnull Event event, @Nonnull LocalDateTime airDateTime, long numberOfTickets);
+
+    /**
+     * Calculates discount for order entry
+     * @param orderEntry
+     * @return
+     */
+    double getDiscount(OrderEntry orderEntry);
 
 }
