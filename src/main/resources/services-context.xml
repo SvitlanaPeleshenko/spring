@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:c="http://www.springframework.org/schema/c"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="bookingService" class="ua.epam.spring.hometask.service.impl.BookingServiceImpl">
+        <property name="ticketDao" ref="ticketDao" />
+        <property name="orderEntryDao" ref="orderEntryDao" />
+        <property name="eventDao" ref="eventDao" />
+        <property name="discountService" ref="discountService" />
+        <property name="additionalPriceStrategy">
+            <bean class="ua.epam.spring.hometask.service.strategy.impl.SummingAdditionalEventPriceStrategy">
+                <property name="strategies">
+                    <list>
+                        <bean id="vipSeatsEventPriceStrategy" class="ua.epam.spring.hometask.service.strategy.impl.VipSeatsEventPriceStrategy">
+                            <constructor-arg value="2D" />
+                        </bean>
+                        <bean id="highRatingEventPriceStrategy" class="ua.epam.spring.hometask.service.strategy.impl.HighRatingEventPriceStrategy">
+                            <property name="highRatingMultiplier" >
+                                <value>1.2D</value>
+                            </property>
+                        </bean>
+                    </list>
+                </property>
+            </bean>
+        </property>
+    </bean>
+
+
+    <bean id="eventService" class="ua.epam.spring.hometask.service.impl.EventServiceImpl" >
+        <property name="eventDao" value="#{@eventDao}" />
+    </bean>
+
+    <bean id="orderService" class="ua.epam.spring.hometask.service.impl.OrderServiceImpl">
+        <property name="orderDao" ref="orderDao" />
+        <property name="orderEntryDao" ref="orderEntryDao" />
+    </bean>
+
+    <bean id="userService" class="ua.epam.spring.hometask.service.impl.UserServiceImpl">
+        <property name="userDao" ref="userDao" />
+    </bean>
+
+</beans>

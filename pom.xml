@@ -19,7 +19,7 @@
     <build>
         <resources>
             <resource>
-                <directory>src/main/resources</directory>
+                <directory>src/test/resources</directory>
                 <filtering>false</filtering>
                 <targetPath>../resources</targetPath>
                 <includes>
@@ -123,6 +123,12 @@
             <groupId>commons-collections</groupId>
             <artifactId>commons-collections</artifactId>
             <version>3.2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>5.0.3.RELEASE</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
     <organization>

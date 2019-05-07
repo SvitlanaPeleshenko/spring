@@ -18,6 +18,10 @@ public class User extends DomainObject {
 
     private Long id;
 
+    private LocalDateTime birthday;
+
+    private double balance;
+
     public LocalDateTime getBirthday() {
         return birthday;
     }
@@ -26,14 +30,11 @@ public class User extends DomainObject {
         return balance;
     }
 
-    private LocalDateTime birthday;
-
-    private double balance;
-
-
     public User(DomainObject domainObject) {
         super(domainObject);
     }
+
+    private static final LocalDateTime BIRTHDAY = LocalDateTime.now();
 
     public User() {
     }
@@ -45,6 +46,14 @@ public class User extends DomainObject {
         this.email = user.email;
         this.birthday = user.birthday;
         this.balance = user.balance;
+    }
+
+    public User(String firstName,String lastName,Long id, double balance,String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email =email;
+        this.birthday =BIRTHDAY ;
+        this.balance = balance;
     }
 
     @Override

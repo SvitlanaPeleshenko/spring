@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 import java.util.NavigableMap;
 import java.util.Objects;
 import java.util.Optional;
@@ -20,6 +21,7 @@ import ua.epam.spring.hometask.dao.TicketDao;
 import ua.epam.spring.hometask.domain.Auditorium;
 import ua.epam.spring.hometask.domain.Event;
 
+import static java.util.stream.Collectors.toMap;
 
 
 public class EventDaoInMemory implements EventDao {
@@ -114,10 +116,10 @@ public class EventDaoInMemory implements EventDao {
                 .getAuditoriums()
                 .entrySet()
                 .stream()
-                .collect(
-                        Collectors.toMap(e -> e.getKey(), e -> auditoriumDao
-                                .getByCode(e.getValue()), (e1, e2) -> e1,
-                                TreeMap::new));
+                .collect(toMap(Map.Entry::getKey,
+                              e -> auditoriumDao.getByCode(e.getValue().getCode()),
+                              (e1, e2) -> e1,
+                              TreeMap::new));
     }
 
     public void setIdGenerator(IdGenerator idGenerator) {

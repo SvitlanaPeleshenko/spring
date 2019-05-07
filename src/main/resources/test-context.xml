@@ -32,7 +32,7 @@
         </property>
     </bean>
 
-    <bean id="testInMemoryAuditoriumDao" name="auditoriumDao" class="ua.epam.spring.hometask.dao.impl.InMemoryAuditoriumDao">
+    <bean id="testInMemoryAuditoriumDao" name="auditoriumDao" class="ua.epam.spring.hometask.dao.impl.AuditoriumDaoInMemory">
         <constructor-arg>
             <set>
                 <bean class="ua.epam.spring.hometask.domain.Auditorium"
@@ -44,7 +44,7 @@
         </constructor-arg>
     </bean>
 
-    <bean id="overrideStrategiesBookingService" name="bookingService" class="ua.epam.spring.hometask.service.impl.DefaultBookingService" >
+    <bean id="overrideStrategiesBookingService" name="bookingService" class="ua.epam.spring.hometask.service.impl.BookingServiceImpl" >
         <property name="additionalPriceStrategy">
             <bean class="ua.epam.spring.hometask.service.strategy.impl.HighRatingEventPriceStrategy">
                 <property name="highRatingMultiplier" >

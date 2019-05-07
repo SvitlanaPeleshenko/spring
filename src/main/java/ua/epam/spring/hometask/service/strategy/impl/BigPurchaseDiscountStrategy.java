@@ -6,7 +6,7 @@ import ua.epam.spring.hometask.domain.Event;
 import ua.epam.spring.hometask.domain.User;
 import ua.epam.spring.hometask.service.strategy.DiscountStrategy;
 
-public class EveryXTicketDiscountStrategy implements DiscountStrategy {
+public class BigPurchaseDiscountStrategy implements DiscountStrategy {
 
     private int number;
     private byte discountPercent;
