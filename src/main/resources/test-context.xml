@@ -16,7 +16,7 @@
 
 
 
-    <import resource="application-context.xml" />
+    <import resource="application-context.xml"/>
 
     <alias name="testDiscountService" alias="discountService" />
     <bean id="testDiscountService" class="ua.epam.spring.hometask.service.impl.DefaultDiscountService">

@@ -7,6 +7,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:test-context.xml")
-public abstract class SetupTest extends AbstractTransactionalJUnit4SpringContextTests {
+public abstract class SetupTest{
 
 }

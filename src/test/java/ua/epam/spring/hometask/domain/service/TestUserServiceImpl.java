@@ -33,8 +33,6 @@ public class TestUserServiceImpl extends SetupTest {
     assertTrue(userFromService.getBalance()==newUser.getBalance());
   }
 
-
-
   @Test
   public void getUserByIdTest(){
     User userFromService=userService.getById(newUser.getId());
@@ -57,6 +55,5 @@ public class TestUserServiceImpl extends SetupTest {
     userService.remove(newUser);
     assertNull(userService.getById(newUser.getId()));
   }
-
 
 }

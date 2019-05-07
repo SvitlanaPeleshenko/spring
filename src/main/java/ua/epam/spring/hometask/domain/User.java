@@ -20,7 +20,7 @@ public class User extends DomainObject {
 
     private LocalDateTime birthday;
 
-    private double balance;
+    private Long balance;
 
     public LocalDateTime getBirthday() {
         return birthday;
@@ -48,7 +48,7 @@ public class User extends DomainObject {
         this.balance = user.balance;
     }
 
-    public User(String firstName,String lastName,Long id, double balance,String email) {
+    public User(String firstName,String lastName,Long id, Long balance,String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email =email;
