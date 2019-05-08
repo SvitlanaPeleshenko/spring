@@ -19,13 +19,13 @@
     <import resource="application-context.xml"/>
 
     <alias name="testDiscountService" alias="discountService" />
-    <bean id="testDiscountService" class="ua.epam.spring.hometask.service.impl.DefaultDiscountService">
+    <bean id="testDiscountService" class="ua.epam.spring.hometask.service.impl.DiscountServiceImpl">
         <property name="discountStrategies">
             <list>
                 <bean class="ua.epam.spring.hometask.service.strategy.impl.BirthdayDiscountStrategy"
                       p:withinDays="5"
                       p:discountValue="5" />
-                <bean class="ua.epam.spring.hometask.service.strategy.impl.EveryXTicketDiscountStrategy"
+                <bean class="ua.epam.spring.hometask.service.strategy.impl.BigPurchaseDiscountStrategy"
                       p:number="2"
                       p:discountPercent="50" />
             </list>

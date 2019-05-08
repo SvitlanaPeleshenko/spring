@@ -1,5 +1,6 @@
 package ua.epam.spring.hometask.dao.impl;
 
+import ua.epam.spring.hometask.dao.IdGenerator;
 import ua.epam.spring.hometask.dao.UserDao;
 import ua.epam.spring.hometask.domain.User;
 

@@ -1,37 +1,46 @@
 package ua.epam.spring.hometask.service.impl;
 
+import ua.epam.spring.hometask.dao.EventDao;
 import ua.epam.spring.hometask.domain.Event;
 import ua.epam.spring.hometask.service.EventService;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.Collection;
+import java.util.Objects;
 
 public class EventServiceImpl implements EventService {
-    @Nullable
+    private EventDao eventDao;
+
     @Override
-    public Event getByName(@Nonnull String name) {
-        return null;
+    public Event save(Event event) {
+        Objects.requireNonNull(event);
+        return eventDao.save(event);
     }
 
     @Override
-    public Event save(@Nonnull Event object) {
-        return null;
-    }
-
-    @Override
-    public void remove(@Nonnull Event object) {
-
+    public void remove(Event event) {
+        Objects.requireNonNull(event);
+        eventDao.remove(event);
     }
 
     @Override
     public Event getById(@Nonnull Long id) {
-        return null;
+        return eventDao.getById(id);
     }
 
-    @Nonnull
     @Override
     public Collection<Event> getAll() {
-        return null;
+        return eventDao.getAll();
+    }
+
+    @Override
+    public Event getByName(String name) {
+        Objects.requireNonNull(name);
+        return eventDao.getByName(name);
+    }
+
+    public void setEventDao(EventDao eventDao) {
+        this.eventDao = eventDao;
     }
 }

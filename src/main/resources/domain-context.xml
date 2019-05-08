@@ -16,10 +16,11 @@
        http://www.springframework.org/schema/c">
 
     <context:property-placeholder location="auditorium.properties"/>
-    <bean name="newUser" class="ua.epam.spring.hometask.domain.User"
-          c:firstName="${user.1.name}"
-          c:lastName="${user.1.lastName}"
-          c:balance_ref="idGenerator"
-          c:email="${user.1.userEmail}"
-          c:id_ref="idGenerator"/>
+    <bean name="newUser" class="ua.epam.spring.hometask.domain.User">
+        <constructor-arg value="${user.1.name}"/>
+        <constructor-arg value="${user.1.lastName}"/>
+        <constructor-arg value="${user.1.id}"/>
+        <constructor-arg value="${user.1.balance}"/>
+        <constructor-arg value="${user.1.userEmail}"/>
+    </bean>
 </beans>

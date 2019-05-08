@@ -51,6 +51,7 @@ public class User extends DomainObject {
     public User(String firstName,String lastName,Long id, Long balance,String email) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.id =id;
         this.email =email;
         this.birthday =BIRTHDAY ;
         this.balance = balance;

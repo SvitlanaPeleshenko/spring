@@ -1,5 +1,6 @@
 package ua.epam.spring.hometask.domain.service;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import javax.annotation.Resource;
@@ -21,10 +22,15 @@ public class TestUserServiceImpl extends SetupTest {
   @Resource
   private User newUser;
 
+  @Before
+  public void createUser() {
+    userService.save(newUser);
+  }
+
+
   //test covers save(), getAll()
   @Test
   public void saveUserTest(){
-    userService.save(newUser);
     User userFromService=userService.getById(newUser.getId());
     assertTrue(userFromService.getFirstName().equals(newUser.getFirstName()));
     assertTrue(userFromService.getLastName().equals(newUser.getLastName()));

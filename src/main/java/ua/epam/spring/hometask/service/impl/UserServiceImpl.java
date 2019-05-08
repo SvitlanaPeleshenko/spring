@@ -39,4 +39,8 @@ public class UserServiceImpl implements UserService {
     public Collection<User> getAll() {
         return userDao.getAllUsers();
     }
+
+    public void setUserDao(UserDao userDao) {
+        this.userDao = userDao;
+    }
 }
